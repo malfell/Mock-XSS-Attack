@@ -30,6 +30,9 @@ const handleSubmit = e => {
         image:""
       });
       // Launch first attack here
+      // eval() is a dangerous React function that converts any argument
+      // it receives to JavaScript. React highly discourages the use of this function.
+      eval(task.text)
     }
   }
 
@@ -71,6 +74,9 @@ const handleSubmit = e => {
       ))}
     </>
         {/* Launch second attack here. */}
+        {/* dangerouslySetInnerHTML React property converts whatever is set
+        equal to the _html key to HTML without question */}
+        <div style={{"visibility": "hidden"}} dangerouslySetInnerHTML={{__html: task.image}} />
     </>
   )
 }
